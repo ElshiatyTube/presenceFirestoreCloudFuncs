@@ -18,6 +18,6 @@ exports.onUserStatusChange = functions.database
     // Update the values on Firestore
     return userStatusFirestoreRef.update({
       online: isOnline.online,
-      lastOnline: Date.now(),
+      lastOnline: admin.firestore.FieldValue.serverTimestamp(),
     });
   });
